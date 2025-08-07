@@ -67,7 +67,7 @@ set "downloadUrl=https://laptop-updates.brave.com/latest/winx64/BraveBrowserSetu
 set "browser=Google Chrome"
 set "downloadUrl=https://dl.google.com/chrome/install/latest/chrome_installer.exe" > NUL 2>&1
 ) else if "%choice%"=="0" (
-goto phrase1
+goto Z
 ) else (
 echo Invalid choice. Please try again.
 pause
@@ -187,6 +187,7 @@ PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWAR
 	CLS
 )
 
+:Z
 REM Installing Drivers
 
 REM Disable OS Data Collection (privacy.sexy)
@@ -2111,3 +2112,4 @@ powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows
 CLS
 
 goto Y
+
