@@ -220,122 +220,49 @@ PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWAR
 :: ----------------------------------------------------------
 
 
-:: ----------------------------------------------------------
-:: -----Disable app access to unpaired Bluetooth devices-----
-:: ----------------------------------------------------------
-echo --- Disable app access to unpaired Bluetooth devices
-:: Disable app capability (bluetoothSync) using user privacy settings
-:: Set the registry value: "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync!Value"
+REM Disable app access to unpaired Bluetooth devices
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync'; $data =  'Deny'; reg add 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\bluetoothSync' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: ----------Disable app access to voice activation----------
-:: ----------------------------------------------------------
-echo --- Disable app access to voice activation
-:: Disable app access (LetAppsActivateWithVoice) using GPO (re-activation through GUI is not possible)
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoice"
+REM Disable app access to voice activation
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoice' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoice_UserInControlOfTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoice_UserInControlOfTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoice_ForceAllowTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoice_ForceAllowTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoice_ForceDenyTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoice_ForceDenyTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps!AgentActivationEnabled"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps'; $data =  '0'; reg add 'HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps' /v 'AgentActivationEnabled' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: -Disable app access to voice activation on locked system--
-:: ----------------------------------------------------------
-echo --- Disable app access to voice activation on locked system
-:: Disable app access (LetAppsActivateWithVoiceAboveLock) using GPO (re-activation through GUI is not possible)
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoiceAboveLock"
+REM Disable app access to voice activation on locked system
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoiceAboveLock' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoiceAboveLock_UserInControlOfTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoiceAboveLock_UserInControlOfTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoiceAboveLock_ForceAllowTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoiceAboveLock_ForceAllowTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsActivateWithVoiceAboveLock_ForceDenyTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsActivateWithVoiceAboveLock_ForceDenyTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps!AgentActivationOnLockScreenEnabled"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps'; $data =  '0'; reg add 'HKCU\Software\Microsoft\Speech_OneCore\Settings\VoiceActivation\UserPreferenceForAllApps' /v 'AgentActivationOnLockScreenEnabled' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: --------------Disable app access to location--------------
-:: ----------------------------------------------------------
-echo --- Disable app access to location
-:: Disable app access (LetAppsAccessLocation) using GPO (re-activation through GUI is not possible)
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessLocation"
+REM Disable app access to location
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessLocation' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessLocation_UserInControlOfTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessLocation_UserInControlOfTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessLocation_ForceAllowTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessLocation_ForceAllowTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessLocation_ForceDenyTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessLocation_ForceDenyTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Disable app capability (location) using user privacy settings
-:: Set the registry value: "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location'; $data =  'Deny'; reg add 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\location' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration!Status"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration'; $data =  '0'; reg add 'HKLM\SYSTEM\CurrentControlSet\Services\lfsvc\Service\Configuration' /v 'Status' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Disable app access ({BFA794E4-F964-4FDB-90F6-51056BFE4B44}) in older Windows versions (before 1903)
-:: Set the registry value: "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}'; $data =  'Deny'; reg add 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{BFA794E4-F964-4FDB-90F6-51056BFE4B44}' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: Disable app access ({E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}) in older Windows versions (before 1903)
-:: Set the registry value: "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}'; $data =  'Deny'; reg add 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{E6AD100E-5F4E-44CD-BE0F-2265D88D14F5}' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: Disable app access to account information, name, and picture
-echo --- Disable app access to account information, name, and picture
-:: Disable app access (LetAppsAccessAccountInfo) using GPO (re-activation through GUI is not possible)
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessAccountInfo"
+REM Disable app access to account information, name, and picture
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessAccountInfo' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessAccountInfo_UserInControlOfTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessAccountInfo_UserInControlOfTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessAccountInfo_ForceAllowTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessAccountInfo_ForceAllowTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessAccountInfo_ForceDenyTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessAccountInfo_ForceDenyTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Disable app capability (userAccountInformation) using user privacy settings
-:: Set the registry value: "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation'; $data =  'Deny'; reg add 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\userAccountInformation' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: Disable app access ({C1D23ACC-752B-43E5-8448-8D0E519CD6D6}) in older Windows versions (before 1903)
-:: Set the registry value: "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}'; $data =  'Deny'; reg add 'HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess\Global\{C1D23ACC-752B-43E5-8448-8D0E519CD6D6}' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: ----------Disable app access to motion activity-----------
-:: ----------------------------------------------------------
-echo --- Disable app access to motion activity
-:: Disable app access (LetAppsAccessMotion) using GPO (re-activation through GUI is not possible)
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessMotion"
+REM Disable app access to motion activity
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessMotion' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessMotion_UserInControlOfTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessMotion_UserInControlOfTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessMotion_ForceAllowTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessMotion_ForceAllowTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessMotion_ForceDenyTheseApps"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '\0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessMotion_ForceDenyTheseApps' /t 'REG_MULTI_SZ' /d "^""$data"^"" /f"
-:: Disable app capability (activity) using user privacy settings
-:: Set the registry value: "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\activity!Value"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\activity'; $data =  'Deny'; reg add 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CapabilityAccessManager\ConsentStore\activity' /v 'Value' /t 'REG_SZ' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: ----------Disable app access to trusted devices-----------
-:: ----------------------------------------------------------
-echo --- Disable app access to trusted devices
+REM Disable app access to trusted devices
 :: Disable app access (LetAppsAccessTrustedDevices) using GPO (re-activation through GUI is not possible)
 :: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy!LetAppsAccessTrustedDevices"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy'; $data =  '2'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AppPrivacy' /v 'LetAppsAccessTrustedDevices' /t 'REG_DWORD' /d "^""$data"^"" /f"
@@ -1900,27 +1827,13 @@ PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWAR
 echo --- Disable internet access for Windows DRM
 :: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\WMDRM!DisableOnline"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\WMDRM'; $data =  '1'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\WMDRM' /v 'DisableOnline' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: -------Disable typing feedback (sends typing data)--------
-:: ----------------------------------------------------------
-echo --- Disable typing feedback (sends typing data)
-:: Set the registry value: "HKLM\SOFTWARE\Microsoft\Input\TIPC!Enabled"
+REM Disable typing feedback (sends typing data)
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Microsoft\Input\TIPC'; $data =  '0'; reg add 'HKLM\SOFTWARE\Microsoft\Input\TIPC' /v 'Enabled' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: Set the registry value: "HKCU\SOFTWARE\Microsoft\Input\TIPC!Enabled"
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKCU\SOFTWARE\Microsoft\Input\TIPC'; $data =  '0'; reg add 'HKCU\SOFTWARE\Microsoft\Input\TIPC' /v 'Enabled' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
-
-:: ----------------------------------------------------------
-:: --------------Disable Activity Feed feature---------------
-:: ----------------------------------------------------------
-echo --- Disable Activity Feed feature
-:: Set the registry value: "HKLM\SOFTWARE\Policies\Microsoft\Windows\System!EnableActivityFeed"
+REM Disable Activity Feed feature
 PowerShell -ExecutionPolicy Unrestricted -Command "$registryPath = 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'; $data =  '0'; reg add 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System' /v 'EnableActivityFeed' /t 'REG_DWORD' /d "^""$data"^"" /f"
-:: ----------------------------------------------------------
 
 exit
 
@@ -1964,3 +1877,4 @@ powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows
 CLS
 
 goto Y
+
