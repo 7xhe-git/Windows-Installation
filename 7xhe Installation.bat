@@ -66,6 +66,7 @@ set "downloadUrl=https://laptop-updates.brave.com/latest/winx64/BraveBrowserSetu
 set "browser=Google Chrome"
 set "downloadUrl=https://dl.google.com/chrome/install/latest/chrome_installer.exe" > NUL 2>&1
 ) else if "%choice%"=="0" (
+CLS
 goto Z
 ) else (
 echo Invalid choice. Please try again.
@@ -1869,5 +1870,6 @@ exit /b 1
 CLS
 
 goto Y
+
 
 
