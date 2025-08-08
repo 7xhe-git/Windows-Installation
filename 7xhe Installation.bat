@@ -1866,15 +1866,8 @@ echo No internet connection detected. Please check your connection.
 pause
 exit /b 1
 )
-
-REM Creates a folder in C:\ & Installs tools
-mkdir "C:\Program Files\7xhe-tools"
-powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows-Installation/raw/refs/heads/main/hosts' -OutFile 'C:\Program Files\7xhe-tools\hosts'"
-powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows-Installation/raw/refs/heads/main/blank.ico' -OutFile 'C:\Program Files\7xhe-tools\blank.ico'"
-powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows-Installation/raw/refs/heads/main/NSudo.exe' -OutFile 'C:\Program Files\7xhe-tools\NSudo.exe'"
-powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows-Installation/raw/refs/heads/main/DevManView.exe' -OutFile 'C:\Program Files\7xhe-tools\DevManView.exe'"
-powershell -Command "Invoke-WebRequest -Uri 'https://github.com/7xhe-git/Windows-Installation/raw/refs/heads/main/DeviceCleanupCmd.exe' -OutFile 'C:\Program Files\7xhe-tools\DeviceCleanupCmd.exe'"
 CLS
 
 goto Y
+
 
