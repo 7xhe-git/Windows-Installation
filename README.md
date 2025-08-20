@@ -1,4 +1,4 @@
-# ⚠️ Disclaimer
+# Disclaimer
 
 ## I am not knowledgeable about Computer (Hardwware/OS)
 
@@ -12,4 +12,12 @@
 
 *The batch file (program) uses windows software such as Registry,CMD (BCDEDIT,FSUTIL,POWERSHELL,REGISTRY). It may also be flagged as a threat to your computer anti-virus since It modifiers various things in your windows including Windows Defender,Windows Update, and Telemetry*
 
+# Warnings
 
+- **Running this file will change system settings**
+- **Windows features such as updates or Defender are disabled**
+- **Some drivers may behave differently after debloating**
+- **Results may vary depending on your Windows version and hardware**
+
+**Q: Can I undo the changes?**
+*Only if you have a backup or system restore point. Always create one before using this tool*
