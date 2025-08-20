@@ -1,3 +1,5 @@
+# I am not knowledgeable about Computer (Hardwware/OS)
+
 # Anything that happens to your hardware is not my responsibility as you have agreed to since you decided to run a stranger batch file (program) without reading the source code/readme
 
 ****The batch file (program) is readable even to NEWBIES****
