@@ -23,4 +23,4 @@
 *Only if you have a backup or system restore point. Always create one before using this tool*
 
 # How to use?
-### *Install Setup.bat in Releases and double click to run the file. The file will always install the latest version but ensure you download the latest Setup.bat to make sure it installs it properly
+### Install Setup.bat in Releases and double click to run the file. The file will always install the latest version but ensure you download the latest Setup.bat to make sure it installs it properly
