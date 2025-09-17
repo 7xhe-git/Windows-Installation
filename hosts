@@ -17,7 +17,6 @@ ff02::1		ip6-allnodes
 ff02::2		ip6-allrouters
 ff02::3		ip6-allhosts
 #fe80::1%lo0	localhost
-
 # Update 10/27/2024
 # Removes Most of the malware websites,buggy,dataware,I dont use,telemetry,security reasons
 #</localhost>
@@ -102,7 +101,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 23.32.0.0/11
 0.0.0.0 23.64.0.0/14
 0.0.0.0 23.55.130.182
-
 #Added by Revision - related to Microsoft
 0.0.0.0 a.ads1.msads.net
 0.0.0.0 a.ads1.msn.com
@@ -148,12 +146,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 az667904.vo.msecnd.net
 0.0.0.0 scus-breeziest-in.cloudapp.net
 0.0.0.0 nw-umwatson.events.data.microsoft.com
-
-
-
-
-
-
 # NoCoin Filter List - Blocking Web Browser Bitcoin Mining
 0.0.0.0 1beb2a44.space
 0.0.0.0 1q2w3.fun
@@ -864,7 +856,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 easyhash.de
 0.0.0.0 srcip.com
 0.0.0.0 srcips.com
-
 #Added By Revision - non-related to Microsoft
 #0.0.0.0 remote-auth-gateway.discord.gg // Breaks Discord QR
 #0.0.0.0 www.googleadservices.com // Breaks shopping search
@@ -1271,7 +1262,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 www.goat.cx
 0.0.0.0 shafou.com
 0.0.0.0 www.shafou.com
-
 0.0.0.0 1girl1pitcher.com
 0.0.0.0 1girl1pitcher.org
 0.0.0.0 1guy1cock.com
@@ -1453,7 +1443,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 youaresogay.com
 0.0.0.0 zentastic.com
 #</shock-sites>
-
 #<shortcut-examples>
 # As well by specifying the ipaddress of a server, you can gain access
 #   to some of your favourite sites with a single letter, instead of
@@ -1462,7 +1451,6 @@ ff02::3		ip6-allhosts
 #216.34.181.45   s        # slashdot.org
 #74.125.127.105	g        # google.com
 #</shortcut-examples>
-
 #<hijack-sites>
 # The sites ads234.com and ads345.com -- These sites hijack internet explorer 
 # and redirect all requests through their servers. You may need to use spyware 
@@ -1476,8 +1464,6 @@ ff02::3		ip6-allhosts
 0.0.0.0 www.ads234.com
 0.0.0.0 www.ads345.com
 #</hijack-sites>
-
-
 #<spyware-sites>
 # Spyware and user tracking
 # By entering domains here, it will prevent certain companies from
@@ -1488,7 +1474,6 @@ ff02::3		ip6-allhosts
 # let them know that you have read your mail. 
 # Uncomment (remove the #) the lines that you wish to block, as some
 # may provide you with services you like.
-
 #<maybe-spy>
 #0.0.0.0 auto.search.msn.com  # Microsoft uses this server to redirect
                                 # mistyped URLs to search engines. They
@@ -1497,7 +1482,6 @@ ff02::3		ip6-allhosts
 #0.0.0.0 sitefinder-idn.verisign.com	# of trying to hijack mistyped
 					# URLs to their site. 
 					# May break iOS Game Center.
-
 #0.0.0.0 s0.2mdn.net		# This may interfere with some streaming 
 				# video on sites such as cbc.ca
 #0.0.0.0 ad.doubleclick.net   # This may interefere with www.sears.com
@@ -5394,13 +5378,11 @@ ff02::3		ip6-allhosts
 # may cause problems with iwon.com
 0.0.0.0 ak.imgfarm.com		
 0.0.0.0 click.linksynergy.com
-#This may cause problems with zone.msn.com
 0.0.0.0 global.msads.net
 # blocks myspace media/video players
 0.0.0.0 lads.myspace.com
 #affiliate program, to add it back, put the #
 0.0.0.0 refer.ccbill.com
-#This may cause problems with zone.msn.com
 0.0.0.0 rmads.msn.com
 #same as below
 0.0.0.0 www.apmebf.com
@@ -23676,4 +23658,3 @@ ff02::3		ip6-allhosts
 0.0.0.0 weus2watcab02.blob.core.windows.net
 0.0.0.0 googletagmanager.com
 0.0.0.0 imasdk.googleapis.com
-0.0.0.0 p4-fbm4tfy4du3vk-rsg77dtzm53vwr6k-854535-i1-v6exp3.v4.metric.gstatic.com
