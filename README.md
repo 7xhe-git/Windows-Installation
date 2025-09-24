@@ -13,6 +13,7 @@
 - **Some drivers may behave differently after debloating**
 - **Results may vary depending on your Windows version and hardware**
 - **WIFI are disabled**
+- **I did not test these on any other hardware beside mine, it may cause issue for you**
 
 
 **Q: Can I undo the changes?**
@@ -21,3 +22,6 @@
 
 # How to use?
 ### Install Setup.bat in Releases and double click to run the file. The file will always install the latest version but ensure you download the latest Setup.bat to make sure it installs it properly
+
+discord
+discord.gg/Vp2Tj3bYSE
