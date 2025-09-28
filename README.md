@@ -15,6 +15,7 @@
 - **Results may vary depending on your Windows version and hardware**
 - **WIFI are disabled**
 - **I did not test these on any other hardware beside mine, it may cause issue for you**
+- **Recommended to run this on a fresh install (no custom os, no your own tweaks unless you know what it does/how to fix it)
 
 
 **Q: Can I undo the changes?**
