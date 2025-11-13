@@ -29,7 +29,5 @@
 discord.gg/Vp2Tj3bYSE
 
 # Guide
-*I recommend installing 23h2 iot from massgrave
-update windows,drivers (nic [ndis],gpu,bios,chipset not sure bout intel but on amd yea on high end cpu not sure but on lower end yea)*
-
-*If you want other guide join my discord and you can also pay if you dont wanna do it yourself
+- Install the latest winver
+- ddu your gpu
